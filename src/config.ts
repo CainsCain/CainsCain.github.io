@@ -8,8 +8,8 @@ import type {
 import { LinkPreset } from "./types/config";
 
 export const siteConfig: SiteConfig = {
-	title: "我的博客",
-	subtitle: "随便写点东西",
+	title: "电信号，从远方来的生命，主谋",
+	subtitle: "江墨兰的个人博客",
 	lang: "zh_CN",
 	themeColor: {
 		hue: 250,
@@ -49,21 +49,21 @@ export const navBarConfig: NavBarConfig = {
 		LinkPreset.About,
 		{
 			name: "GitHub",
-			url: "https://github.com/", // TODO: 换成你的 GitHub 主页
+			url: "https://github.com/CainsCain",
 			external: true,
 		},
 	],
 };
 
 export const profileConfig: ProfileConfig = {
-	avatar: "assets/images/demo-avatar.png",
-	name: "站长",
-	bio: "在这里记录游戏、读书和一些想不明白的事。",
+	avatar: "assets/images/avatar.jpg",
+	name: "江墨兰",
+	bio: "踽踽同行",
 	links: [
 		{
 			name: "GitHub",
 			icon: "fa6-brands:github",
-			url: "https://github.com/", // TODO: 换成你的 GitHub 主页
+			url: "https://github.com/CainsCain",
 		},
 		{
 			name: "Bilibili",
