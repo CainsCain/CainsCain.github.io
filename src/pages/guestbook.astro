@@ -1,0 +1,57 @@
+---
+import MainGridLayout from "../layouts/MainGridLayout.astro";
+
+// TODO: 填入你自己的 giscus 配置（见 https://giscus.app/zh-CN）
+const giscusRepo = "";
+const giscusRepoId = "";
+const giscusCategory = "Announcements";
+const giscusCategoryId = "";
+const configured = Boolean(giscusRepo && giscusRepoId && giscusCategoryId);
+---
+
+<MainGridLayout title="留言板" description="留言板">
+	<div class="card-base px-6 py-8 md:px-9">
+		<h1 class="text-2xl font-bold mb-2">留言板</h1>
+		<p class="text-90 mb-6 text-sm">说点什么吧，灌水、指错、交换友链都欢迎。</p>
+
+		{
+			configured ? (
+				<div class="giscus"></div>
+			) : (
+				<div class="rounded-xl border border-dashed border-black/15 dark:border-white/15 p-6 text-sm text-50 leading-7">
+					<p class="font-bold text-90 mb-2">留言功能还没接通</p>
+					<p>这个页面默认使用 <a href="https://giscus.app/zh-CN" target="_blank" rel="noopener noreferrer">giscus</a>（基于 GitHub Discussions，免费、无后端）。</p>
+					<p>启用步骤：</p>
+					<ol class="list-decimal ml-5 space-y-1">
+						<li>把仓库设为 Public，并在 Settings → General → Features 里勾选 Discussions；</li>
+						<li>安装 <a href="https://github.com/apps/giscus" target="_blank" rel="noopener noreferrer">giscus App</a> 并授权该仓库；</li>
+						<li>打开 giscus.app，填入仓库名，复制生成的 <code>data-repo-id</code> 与 <code>data-category-id</code>；</li>
+						<li>填到本文件顶部的 <code>giscusRepo</code>、<code>giscusRepoId</code>、<code>giscusCategoryId</code> 四个变量里。</li>
+					</ol>
+				</div>
+			)
+		}
+	</div>
+</MainGridLayout>
+
+{
+	configured && (
+		<script
+			src="https://giscus.app/client.js"
+			data-repo={giscusRepo}
+			data-repo-id={giscusRepoId}
+			data-category={giscusCategory}
+			data-category-id={giscusCategoryId}
+			data-mapping="pathname"
+			data-strict="0"
+			data-reactions-enabled="1"
+			data-emit-metadata="0"
+			data-input-position="top"
+			data-theme="preferred_color_scheme"
+			data-lang="zh-CN"
+			data-loading="lazy"
+			crossorigin="anonymous"
+			async
+		/>
+	)
+}

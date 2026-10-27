@@ -1,0 +1,48 @@
+---
+import MainGridLayout from "../layouts/MainGridLayout.astro";
+
+const friends = [
+	{
+		name: "寒火的小站",
+		url: "https://coldflame324.github.io/",
+		desc: "在篝火边支了个冷饮摊，随便写点东西。",
+	},
+	{
+		name: "Fuwari",
+		url: "https://github.com/saicaca/fuwari",
+		desc: "本博客使用的 Astro 主题。",
+	},
+	{
+		name: "Astro",
+		url: "https://astro.build/",
+		desc: "The web framework for content-driven websites.",
+	},
+];
+---
+
+<MainGridLayout title="友链" description="友情链接">
+	<div class="card-base px-6 py-8 md:px-9">
+		<h1 class="text-2xl font-bold mb-2">友链</h1>
+		<p class="text-90 mb-6 text-sm">欢迎交换友链，在留言板留下你的站点信息即可。</p>
+		<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+			{
+				friends.map((f) => (
+					<a
+						href={f.url}
+						target="_blank"
+						rel="noopener noreferrer"
+						class="flex items-center gap-4 rounded-xl border border-black/10 dark:border-white/10 p-4 transition hover:bg-[var(--btn-regular-bg)] no-underline"
+					>
+						<div class="w-12 h-12 rounded-full shrink-0 flex items-center justify-center text-lg font-bold text-white bg-[var(--primary)]">
+							{f.name.slice(0, 1)}
+						</div>
+						<div class="min-w-0">
+							<div class="font-bold text-90 truncate">{f.name}</div>
+							<div class="text-sm text-50 truncate">{f.desc}</div>
+						</div>
+					</a>
+				))
+			}
+		</div>
+	</div>
+</MainGridLayout>
